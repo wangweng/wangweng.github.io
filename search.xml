@@ -3,19 +3,89 @@
   <entry>
     <title>Hello World</title>
     <url>/2021/10/08/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+    <content><![CDATA[<h3 id="Hexo常用命令"><a href="#Hexo常用命令" class="headerlink" title="Hexo常用命令"></a>Hexo常用命令</h3><p><img src="../../../images/images/helloworld/hexo.svg" alt="https://hexo.io/docs/one-command-deployment.html"></p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>简写</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>npm install hexo -g</td>
+<td></td>
+<td>安装hexo</td>
+</tr>
+<tr>
+<td>npm update hexo -g</td>
+<td></td>
+<td>更新hexo</td>
+</tr>
+<tr>
+<td>hexo init</td>
+<td></td>
+<td>初始化</td>
+</tr>
+<tr>
+<td>npm install hexo-xxxx –save</td>
+<td></td>
+<td>安装插件</td>
+</tr>
+<tr>
+<td>npm uninstall hexo-xxx –save</td>
+<td></td>
+<td>卸载插件</td>
+</tr>
+<tr>
+<td>hexo n “文章名”</td>
+<td></td>
+<td>新建文章(日常在source/_drafts目录下创建文件是草稿，source/_posts目录下创建文件是发布的文章)</td>
+</tr>
+<tr>
+<td>hexo clean</td>
+<td></td>
+<td>清除缓存</td>
+</tr>
+<tr>
+<td>hexo generate</td>
+<td>hexo g</td>
+<td>生成静态文件(public文件夹内容生成)</td>
+</tr>
+<tr>
+<td>hexo deploy</td>
+<td>hexo d</td>
+<td>部署</td>
+</tr>
+<tr>
+<td>hexo d -g</td>
+<td></td>
+<td>生成静态文件并部署</td>
+</tr>
+<tr>
+<td>hexo server</td>
+<td>hexo s</td>
+<td>预览,启动服务器</td>
+</tr>
+<tr>
+<td>hexo s -p 端口号</td>
+<td></td>
+<td>自定义端口号</td>
+</tr>
+<tr>
+<td>hexo s -i IP地址</td>
+<td></td>
+<td>自定义IP</td>
+</tr>
+<tr>
+<td>hexo s -s</td>
+<td></td>
+<td>使用静态文件启动</td>
+</tr>
+</tbody></table>
 ]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
   </entry>
 </search>

@@ -1225,7 +1225,7 @@ img {
 .video-media {
   position: relative;
   z-index: 0;
-  height: 90vh;
+  height: 100vmin;
   overflow: hidden;
 }
 .video-media video,
@@ -1243,7 +1243,7 @@ img {
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: rgba(185,185,185,0.7);
+  background-color: rgba(255,255,255,0.7);
 }
 .video-inner {
   position: absolute;
@@ -1253,7 +1253,7 @@ img {
 }
 .video-inner a,
 .video-inner {
-  color: #fff;
+  color: #808080;
   text-decoration: none;
 }
 .video-learn-more {
@@ -2451,6 +2451,12 @@ pre .javascript .function {
 }
 .navbar .nav.nav-main .nav-item:nth-child(3) .nav-item-link::before {
   content: '\f1a9';
+}
+.navbar .nav.nav-main .nav-item:nth-child(4) .nav-item-link::before {
+  content: '\f11e';
+}
+.navbar .nav.nav-main .nav-item:nth-child(5) .nav-item-link::before {
+  content: '\f18c';
 }
 .navbar .nav.nav-main .nav-item:nth-child(4) .nav-item-link::before {
   content: '\f174';
