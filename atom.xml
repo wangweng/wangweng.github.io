@@ -3,11 +3,11 @@
   <title>Wen wong</title>
   
   <subtitle>自律使我自由</subtitle>
-  <link href="http://example.com/atom.xml" rel="self"/>
+  <link href="https://www.nanakomatsu.xyz/atom.xml" rel="self"/>
   
-  <link href="http://example.com/"/>
+  <link href="https://www.nanakomatsu.xyz/"/>
   <updated>2021-10-09T13:08:13.099Z</updated>
-  <id>http://example.com/</id>
+  <id>https://www.nanakomatsu.xyz/</id>
   
   <author>
     <name>John Doe</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>Hexo使用记录</title>
-    <link href="http://example.com/2021/10/08/hello-world/"/>
-    <id>http://example.com/2021/10/08/hello-world/</id>
+    <link href="https://www.nanakomatsu.xyz/2021/10/08/hello-world/"/>
+    <id>https://www.nanakomatsu.xyz/2021/10/08/hello-world/</id>
     <published>2021-10-08T11:09:07.381Z</published>
     <updated>2021-10-09T13:08:13.099Z</updated>
     
@@ -34,7 +34,7 @@
     
     
     
-    <category term="Hexo" scheme="http://example.com/categories/Hexo/"/>
+    <category term="Hexo" scheme="https://www.nanakomatsu.xyz/categories/Hexo/"/>
     
     
   </entry>
