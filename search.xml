@@ -316,4 +316,188 @@ void main(args) &#123;
         <category>Flutter</category>
       </categories>
   </entry>
+  <entry>
+    <title>每日英语单词</title>
+    <url>/2021/10/11/%E8%8B%B1%E8%AF%AD/</url>
+    <content><![CDATA[<p>每日单词记录</p>
+<span id="more"></span>
+
+<blockquote>
+<p> 2021/10/11</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>rank</td>
+<td><code>v</code>排名，把…分等级 <code>n</code>等级，级别<code>adj</code>繁茂的</td>
+</tr>
+<tr>
+<td>bonus</td>
+<td><code>n</code> 奖金，额外津贴</td>
+</tr>
+<tr>
+<td>requirement</td>
+<td><code>n</code> 要求，需求，必需品</td>
+</tr>
+<tr>
+<td>infrared</td>
+<td><code>adj</code> 红外线的<code>n</code> 红外线</td>
+</tr>
+<tr>
+<td>contact</td>
+<td><code>v</code> <code>n</code> 联系</td>
+</tr>
+<tr>
+<td>oblige</td>
+<td><code>v</code> 迫使，使感激，使…成为必要</td>
+</tr>
+<tr>
+<td>reckon</td>
+<td><code>vt</code> 估算，认为</td>
+</tr>
+<tr>
+<td>deputy</td>
+<td><code>n</code> 代表</td>
+</tr>
+<tr>
+<td>interact</td>
+<td><code>v</code> 交流，互动</td>
+</tr>
+<tr>
+<td>concern</td>
+<td><code>n</code> 关心 <code>v</code> 感兴趣</td>
+</tr>
+<tr>
+<td>compile</td>
+<td><code>v</code> 收集，汇编</td>
+</tr>
+<tr>
+<td>foundation</td>
+<td><code> n</code> 地基，基金会</td>
+</tr>
+<tr>
+<td>forth</td>
+<td><code>adv</code> 向前，离去</td>
+</tr>
+<tr>
+<td>remark</td>
+<td><code>n</code> <code>v</code> 评论，议论</td>
+</tr>
+<tr>
+<td>prudent</td>
+<td><code>adj</code> 谨慎的，精明的</td>
+</tr>
+<tr>
+<td>specialist</td>
+<td><code>n</code>专家<code>adj</code> 专家的</td>
+</tr>
+<tr>
+<td>failure</td>
+<td><code>n</code> 失败</td>
+</tr>
+<tr>
+<td>medium</td>
+<td><code>adj</code> 中等的<code>n</code> 手段，方法，媒介，材料</td>
+</tr>
+<tr>
+<td>eminent</td>
+<td><code>adj</code>杰出的</td>
+</tr>
+<tr>
+<td>shallow</td>
+<td><code>adj</code>浅的，肤浅的<code>v</code> 变浅，使变浅</td>
+</tr>
+</tbody></table>
+]]></content>
+      <categories>
+        <category>English</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>JAVA设计模式</title>
+    <url>/2021/10/11/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</url>
+    <content><![CDATA[<p>设计模式（Design pattern）代表了最佳的实践，通常被有经验的面向对象的软件开发人员所采用。设计模式是软件开发人员在软件开发过程中面临的一般问题的解决方案。这些解决方案是众多软件开发人员经过相当长的一段时间的试验和错误总结出来的。</p>
+<span id="more"></span>
+
+<h2 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a>设计模式</h2><hr>
+<h3 id="2021-10-9-单例模式"><a href="#2021-10-9-单例模式" class="headerlink" title="2021/10/9 单例模式"></a><code>2021/10/9</code> 单例模式</h3><hr>
+<h4 id="1-定义"><a href="#1-定义" class="headerlink" title="1.定义"></a>1.定义</h4><ul>
+<li><p>一个类仅有一个实例</p>
+</li>
+<li><p>提供一个访问这个实例的方法</p>
+</li>
+<li><blockquote>
+<p>注意只在同一个JVM中才起作用</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="2-实现关键"><a href="#2-实现关键" class="headerlink" title="2.实现关键"></a>2.实现关键</h4><ul>
+<li>私有构造函数    <code>防止别人直接构造，维持单例</code></li>
+<li>私有静态变量维护对象实例    <code>为了保存创建的单例对象，单例不应该销毁</code></li>
+<li>公共静态方法提供获取实例    <code>提供获取单例的方法</code></li>
+</ul>
+<h4 id="3-实现方式"><a href="#3-实现方式" class="headerlink" title="3.实现方式"></a>3.实现方式</h4><ul>
+<li><strong>懒汉式</strong>。代码简单易读，延时加载对象实例，但是非线程安全，不能用在多线程环境中。这种代码仅能作为讲解学习代码，严重反对在实际软件中使用。<code>线程不安全，一瞬间的高并发可能产生多个‘单例’</code></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SingletonLazy</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//2. 私有静态变量维护当前对象实例</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> SingletonLazy instance = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//1. 私有构造函数</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">SingletonLazy</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//3. 公有静态方法，获取对象实例</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> SingletonLazy <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (instance == <span class="keyword">null</span>) &#123;</span><br><span class="line"></span><br><span class="line">            instance = <span class="keyword">new</span> SingletonLazy();</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> instance;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>双重检查锁</strong>。这种代码是懒汉式的优化，具备懒汉式的优点，同时增加线程同步锁和双重检查机制，可以在多线程环境中使用。调用效率一般，但是依赖JVM的底层模型，不同JVM版本或者不同厂家的JVM可能会有概率性生成多个实例的情况，不推荐在实际产品中使用。<code>效率低，依赖JVM，有可能失效</code></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SingletonDoubleCheck</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//2. 私有静态变量维护当前对象实例,volatile能保证双重检查锁不被jvm影响失效</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">volatile</span> <span class="keyword">static</span> SingletonDoubleCheck instance = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//1. 私有构造函数</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">SingletonDoubleCheck</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//3. 公有静态方法，获取对象实例</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> SingletonDoubleCheck <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (instance == <span class="keyword">null</span>) &#123;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">synchronized</span> (SingletonDoubleCheck.class) &#123;</span><br><span class="line"></span><br><span class="line">                <span class="comment">//双重检查</span></span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> (instance == <span class="keyword">null</span>) &#123;</span><br><span class="line"></span><br><span class="line">                    instance = <span class="keyword">new</span> SingletonDoubleCheck();</span><br><span class="line"></span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> instance;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>饿汉式</strong>。 线程安全，调用效率高，但是不能延时加载对象实例，不推荐实际使用。<code>会影响代码执行速度</code></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SingletonEhan</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//私有静态变量</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> SingletonEhaninstance = <span class="keyword">new</span> SingletonEhan();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 私有化构造方法</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">SingletonEhan</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">     <span class="comment">//公有静态方法</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> SingletonEhan <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> instance;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>静态内部类</strong>。这是对饿汉式的优化。线程安全，调用效率高，而且支持延时加载对象实例，推荐使用。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SingletonInnerStatic</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">SingletonHoler</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 静态初始化器，由JVM来保证线程安全</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">static</span> SingletonInnerStatic instance = </span><br><span class="line"></span><br><span class="line">            <span class="keyword">new</span> SingletonInnerStatic();</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 私有构造函数</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">SingletonInnerStatic</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 获取对象实例的方法</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> SingletonInnerStatic <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> SingletonHoler.instance;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<p>单例模式需要确保只生成一个对象实例，我们可以通过下面的三种方式进行攻击，尝试获取多个不同的对象实例。</p>
+</blockquote>
+<p><strong>三种攻击方式：</strong></p>
+<ul>
+<li><p><strong>反射攻击</strong>：利用jdk反射API，修改单例类构造函数的访问权限，然后调用构造函数；</p>
+</li>
+<li><p><strong>序列化攻击</strong>：将单例对象实例以字节流的方式写入到文件中，然后再读取文件字节流，反序列化生成对象实例;</p>
+</li>
+<li><p>调用对象的克隆方法。</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//正常单例对象</span></span><br><span class="line"></span><br><span class="line">    Singleton single1 = Singleton.getInstance();</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">    <span class="comment">//1. 反射攻击</span></span><br><span class="line"></span><br><span class="line">    Class clazz = Singleton.class;</span><br><span class="line"></span><br><span class="line">    Constructor  cons = clazz.getDeclaredConstructor(<span class="keyword">null</span>);</span><br><span class="line"></span><br><span class="line">    cons.setAccessible(<span class="keyword">true</span>);</span><br><span class="line"></span><br><span class="line">    Singleton single2 =(Singleton) cons.newInstance(<span class="keyword">null</span>);</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">    <span class="comment">//2. 序列化攻击</span></span><br><span class="line"></span><br><span class="line">    FileOutputStream fos = <span class="keyword">new</span> FileOutputStream(<span class="string">&quot;a.txt&quot;</span>);</span><br><span class="line"></span><br><span class="line">    ObjectOutputStream oos = <span class="keyword">new</span> ObjectOutputStream(fos);</span><br><span class="line"></span><br><span class="line">     oos.writeObject(single1);</span><br><span class="line"></span><br><span class="line">     oos.flush();</span><br><span class="line"></span><br><span class="line">     oos.close();</span><br><span class="line"></span><br><span class="line">           </span><br><span class="line"></span><br><span class="line">      FileInputStreamfis = <span class="keyword">new</span> FileInputStream(<span class="string">&quot;a.txt&quot;</span>);</span><br><span class="line"></span><br><span class="line">      ObjectInputStreamois = <span class="keyword">new</span> ObjectInputStream(fis);</span><br><span class="line"></span><br><span class="line">      Singleton single3 =(Singleton) ois.readObject();</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">      <span class="comment">//3. clone攻击</span></span><br><span class="line"></span><br><span class="line">      Singleton single4 =(Singleton) single1.clone();</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>可以采用如下方式修复漏洞：</strong></p>
+</blockquote>
+<ul>
+<li><p><strong>修复反射漏洞</strong>：反射漏洞的原理是多次调用构造函数。可以在构造函数中增加判断，如果已经生成了实例对象，说明此构造函数已经调用过至少一次，禁止在调用构造函数，此时，判定为非法调用，直接抛出异常。</p>
+</li>
+<li><p><strong>修复反序列化漏洞：</strong>重写<strong>readResolve()方法</strong>，直接返回实例对象。JVM在处理反序列化生成对象时会回调此方法，直接得到对象实例。</p>
+</li>
+<li><p><strong>修复克隆漏洞：</strong>重写**clone()**方法，直接返回实例对象。</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span> <span class="keyword">implements</span> <span class="title">Cloneable</span>, <span class="title">Serializable</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> longserialVersionUID =-<span class="number">2516616785479458264L</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">volatile</span> <span class="keyword">static</span> Singleton instance = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 防止反射漏洞</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (instance != <span class="keyword">null</span>)&#123;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException();</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//获取对象实例</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (instance == <span class="keyword">null</span>) &#123;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">synchronized</span> (Singleton.class) &#123;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> (instance == <span class="keyword">null</span>) &#123;</span><br><span class="line"></span><br><span class="line">                    instance = <span class="keyword">new</span> Singleton();</span><br><span class="line"></span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">             &#125;</span><br><span class="line"></span><br><span class="line">         &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> instance;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 反序列化时，如果定义了readResolve()，则直接返回此方法指定的对象，而不需要单独在创建新对象</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">readResolve</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> instance;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 防止Clone生成新的对象</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">clone</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> instance;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>单元素枚举类</strong>。这是一种稍微少见的代码写法，线程安全，调用效率高，并且由于JVM对枚举类的特殊处理方式，天然的解决了前面的安全漏洞。但是，如果希望在首次初始化对象时运行全局逻辑，这种方式会比较困难。需要根据实际功能场景考虑使用。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">enum</span> <span class="title">SingletonEnum</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    INSTANCE;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 定义一个枚举的元素，它 就代表了Singleton的一个实例</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">singletonOperation</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 功能处理</span></span><br><span class="line"></span><br><span class="line">        System.err.println(<span class="string">&quot;功能处理&quot;</span>);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//客户端调用示例</span></span><br><span class="line"></span><br><span class="line">        SingletonEnum.INSTANCE.singletonOperation();</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>JAVA</category>
+      </categories>
+  </entry>
 </search>
