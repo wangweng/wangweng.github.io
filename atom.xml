@@ -6,7 +6,7 @@
   <link href="https://www.nanakomatsu.xyz/atom.xml" rel="self"/>
   
   <link href="https://www.nanakomatsu.xyz/"/>
-  <updated>2021-10-19T11:44:19.350Z</updated>
+  <updated>2021-10-19T11:52:17.936Z</updated>
   <id>https://www.nanakomatsu.xyz/</id>
   
   <author>
@@ -21,19 +21,10 @@
     <link href="https://www.nanakomatsu.xyz/2021/10/19/java%E6%B5%81%E6%93%8D%E4%BD%9C/"/>
     <id>https://www.nanakomatsu.xyz/2021/10/19/java%E6%B5%81%E6%93%8D%E4%BD%9C/</id>
     <published>2021-10-19T11:43:27.000Z</published>
-    <updated>2021-10-19T11:44:19.350Z</updated>
+    <updated>2021-10-19T11:52:17.936Z</updated>
     
     
-      
-      
-        
-        
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;2021/10/19&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3 id=&quot;java-stream流&quot;&gt;&lt;a href=&quot;#java-stream流&quot; class=&quot;headerlink&quot; title=&quot;java stream流&quot;&gt;&lt;/a&gt;java</summary>
-        
-      
+    <summary type="html">&lt;p&gt;Java 8 API添加了一个新的抽象称为流Stream，可以让你以一种声明的方式处理数据。&lt;/p&gt;</summary>
     
     
     

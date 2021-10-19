@@ -96,62 +96,14 @@
         
       
       
-      <blockquote>
-<p>2021/10/19</p>
-</blockquote>
-<h3 id="java-stream流"><a href="#java-stream流" class="headerlink" title="java stream流"></a>java stream流</h3><p>问题：计算一个列表中的奇数平方和</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">demo01</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        List&lt;Integer&gt; numbers = Arrays.asList(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>);</span><br><span class="line">        <span class="keyword">int</span> sum = numbers.stream()</span><br><span class="line">                .filter(n -&gt; n % <span class="number">2</span>  == <span class="number">1</span>)</span><br><span class="line">                .map(n  -&gt; n * n)</span><br><span class="line">                .reduce(<span class="number">0</span>, Integer::sum);</span><br><span class="line"></span><br><span class="line">        System.out.println(sum);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>简单分析源码</p>
-<ul>
-<li>stream()方法存在Collection接口中，将Collection实现类转换为Stream类</li>
-<li>filter()方法在Stream接口中定义，接受一个叫Predicate的函数式接口实现类。官方解释：</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">`filter()`: Returns a stream consisting of the elements of this stream that match the given predicate.This is an intermediate operation.</span><br><span class="line"></span><br><span class="line">`Predicate`: Represents a predicate (boolean-valued function) of one argument.</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>map()方法在Stream接口中定义，接受一个叫Function的函数式接口实现类。官方解释：</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">`map()`: Returns a stream consisting of the results of applying the given function to the elements of this stream.This is an intermediate operation.</span><br><span class="line"></span><br><span class="line">`Function`: Represents a function that accepts one argument and produces a result.</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>reduce()方法在Stream接口中定义，接受一个和流相同的泛型类型参数identity和一个BinaryOperator的函数式接口实现类</p>
-<p><code>Integer::sum</code>这种写法其实是代表函数的引用，等同于<code>(n1, n2) -&gt; n1 + n2</code> 。<code>Integer.sum</code>代表函数的调用。</p>
-<p><code>reduce()</code>对使用BinaryOperator对identity和流里面每个元素进行操作，并将返回值给identity</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">`reduce()`: Performs a reduction on the elements of this stream, using the provided identity value and an associative accumulation function, and returns the reduced value. This is a terminal operation.</span><br><span class="line"></span><br><span class="line">`BinaryOperator`: Represents an operation upon two operands of the same type, producing a result of the same type as the operands. This is a specialization of BiFunction for the case where the operands and the result are all of the same type.</span><br><span class="line"></span><br><span class="line">`BiFunction`: Represents a function that accepts two arguments and produces a result. This is the two-arity specialization of Function.</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h4 id="流操作与循环操作的区别"><a href="#流操作与循环操作的区别" class="headerlink" title="流操作与循环操作的区别"></a>流操作与循环操作的区别</h4><ul>
-<li><code>循环</code>操作是顺序代码，只能由一个线程执行。<code>流</code>被设计为并行处理元素。</li>
-<li><code>循环</code>是命令式编程，我们不仅控制要做什么，还要如何做。<code>流</code> 是声明式编程，我们只需要告诉该做什么，该部分如何做由系统本身处理。</li>
-</ul>
-<h4 id="流的两种操作类型"><a href="#流的两种操作类型" class="headerlink" title="流的两种操作类型"></a>流的两种操作类型</h4><ul>
-<li>中间操作</li>
-<li>终端操作</li>
-</ul>
-<p>中间操作不处理元素，直到在流上调用终端操作。</p>
-<p>流上的中间操作产生另一流。</p>
-<p>Stream通过链式操作以创建流管道。</p>
-<p>在上面的代码中filter()和map()都是中间操作。 而reduce()是终端操作。</p>
-<h3 id="java流API"><a href="#java流API" class="headerlink" title="java流API"></a>java流API</h3><p>流相关的接口和类在java.util.stream包中。</p>
-<p><code>AutoCloseable</code>接口来自java.lang包。</p>
-<p>所有流接口从继承自<code>AutoCloseable</code>接口的<code>BaseStream</code>接口继承。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">AutoCloseable</span><br><span class="line"> |</span><br><span class="line"> +--BaseStream</span><br><span class="line">     |</span><br><span class="line">     +--IntStream</span><br><span class="line">     |</span><br><span class="line">     +--LongStream</span><br><span class="line">     |</span><br><span class="line">     +--DoubleStream</span><br><span class="line">     |</span><br><span class="line">     +--Stream&lt;T&gt;</span><br></pre></td></tr></table></figure>
-
-<p>如果流使用集合作为其数据源，并且集合不需要关闭。</p>
-<p>如果流基于可关闭的数据源（例如文件I/O通道），那么我们可以使用try-with-resources语句创建流，以使其自动关闭。</p>
-<h4 id="BaseStream"><a href="#BaseStream" class="headerlink" title="BaseStream"></a>BaseStream</h4><p>BaseStream接口定义所有类型的流的所有方法。</p>
-<ul>
-<li><code>Iterator&lt;T&gt; iterator()</code><br>终端操作<br>返回流的迭代器。</li>
-<li><code>sequential()</code><br>中间操作<br>返回顺序流。 如果流已经是顺序的，则它返回自身。 它将并行流转换为顺序流。</li>
-<li><code>parallel()</code><br>中间操作<br>返回并行流。 如果流已经是并行的，则它返回自身。 它将并行流转换为顺序流。</li>
-<li><code>boolean isParallel()</code><br>如果流是并行，则返回true，否则返回false。<br>在调用终端流操作方法后调用此方法可能会产生不可预测的结果。</li>
-<li><code>unordered()</code><br>中间操作<br>返回流的无序版本。 如果流已经是无序的，则它返回自身。</li>
-</ul>
-<h4 id="流"><a href="#流" class="headerlink" title="流"></a>流</h4><p><code>Stream&lt;T&gt; </code>接口表示元素类型T的流。</p>
-<p><code>Stream &lt;T&gt;</code>接口包含诸如filter()，map()，reduce()，collect()，max()，min()等。</p>
-<p>当使用原始类型时，我们可以使用三个专门的流接口，称为<code>IntStream</code>，<code>LongStream</code>和<code>DoubleStream</code>。</p>
-<p>这些接口提供了处理原始值的方法。</p>
-
+        <p>Java 8 API添加了一个新的抽象称为流Stream，可以让你以一种声明的方式处理数据。</p>
+        
+          <p>
+            <a class="article-more-link" href="/2021/10/19/java%E6%B5%81%E6%93%8D%E4%BD%9C/">
+              Read More...
+            </a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
