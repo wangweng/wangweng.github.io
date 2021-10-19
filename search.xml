@@ -248,14 +248,13 @@
 </ul>
 <p>​        4、项目中引入库 import ‘package:http/http.dart’ as http; 看文档使用</p>
 <h4 id="库冲突解决"><a href="#库冲突解决" class="headerlink" title="库冲突解决"></a>库冲突解决</h4><p>当引入两个库中有相同名称标识符的时候（如同时存在同名的类），如果是java通常我们通过写上完整的包名路径来指定使用的具体标识符，甚至不用import都可以，但是Dart里面是必须import的。当冲突的时候，可以使用as关键字来指定库的前缀。如下例子所示：</p>
-<pre><code><figure class="highlight dart"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">&#x27;package:lib1/lib1.dart&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">&#x27;package:lib2/lib2.dart&#x27;</span> <span class="keyword">as</span> lib2;</span><br><span class="line"></span><br><span class="line"><span class="built_in">Element</span> element1 = <span class="keyword">new</span> <span class="built_in">Element</span>();           <span class="comment">// Uses Element from lib1.</span></span><br><span class="line"></span><br><span class="line">lib2.<span class="built_in">Element</span> element2 = <span class="keyword">new</span> lib2.<span class="built_in">Element</span>(); <span class="comment">// Uses Element from lib2.</span></span><br><span class="line">​    ```</span><br><span class="line"></span><br><span class="line">#### 库部分导入</span><br><span class="line"></span><br><span class="line">部分导入</span><br><span class="line"></span><br><span class="line">  如果只需要导入库的一部分，有两种模式：</span><br><span class="line"></span><br><span class="line">​     模式一：只导入需要的部分，使用<span class="keyword">show</span>关键字，如下例子所示：</span><br><span class="line"></span><br><span class="line">​     `<span class="keyword">import</span> <span class="string">&#x27;package:lib1/lib1.dart&#x27;</span> <span class="keyword">show</span> foo;`</span><br><span class="line"></span><br><span class="line">​     模式二：隐藏不需要的部分，使用<span class="keyword">hide</span>关键字，如下例子所示：</span><br><span class="line"></span><br><span class="line">​     ` <span class="keyword">import</span> <span class="string">&#x27;package:lib2/lib2.dart&#x27;</span> <span class="keyword">hide</span> foo; ` </span><br><span class="line"></span><br><span class="line">#### 延迟加载</span><br><span class="line"></span><br><span class="line">```dart</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">延迟加载</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    也称为懒加载，可以在需要的时候再进行加载。</span></span><br><span class="line"><span class="comment">    懒加载的最大好处是可以减少APP的启动时间。</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    懒加载使用deferred as关键字来指定，如下例子所示：</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    import &#x27;package:deferred/hello.dart&#x27; deferred as hello;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    当需要使用的时候，需要使用loadLibrary()方法来加载：</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    greet() async &#123;</span></span><br><span class="line"><span class="comment">      await hello.loadLibrary();</span></span><br><span class="line"><span class="comment">      hello.printGreeting();</span></span><br><span class="line"><span class="comment">    &#125;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<pre><code><figure class="highlight dart"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">&#x27;package:lib1/lib1.dart&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">&#x27;package:lib2/lib2.dart&#x27;</span> <span class="keyword">as</span> lib2;</span><br><span class="line"></span><br><span class="line"><span class="built_in">Element</span> element1 = <span class="keyword">new</span> <span class="built_in">Element</span>();           <span class="comment">// Uses Element from lib1.</span></span><br><span class="line"></span><br><span class="line">lib2.<span class="built_in">Element</span> element2 = <span class="keyword">new</span> lib2.<span class="built_in">Element</span>(); <span class="comment">// Uses Element from lib2.</span></span><br><span class="line">​    ```</span><br><span class="line"></span><br><span class="line">#### 库部分导入</span><br><span class="line"></span><br><span class="line">部分导入</span><br><span class="line"></span><br><span class="line">  如果只需要导入库的一部分，有两种模式：</span><br><span class="line"></span><br><span class="line">​     模式一：只导入需要的部分，使用<span class="keyword">show</span>关键字，如下例子所示：</span><br><span class="line"></span><br><span class="line">​     `<span class="keyword">import</span> <span class="string">&#x27;package:lib1/lib1.dart&#x27;</span> <span class="keyword">show</span> foo;`</span><br><span class="line"></span><br><span class="line">​     模式二：隐藏不需要的部分，使用<span class="keyword">hide</span>关键字，如下例子所示：</span><br><span class="line"></span><br><span class="line">​     ` <span class="keyword">import</span> <span class="string">&#x27;package:lib2/lib2.dart&#x27;</span> <span class="keyword">hide</span> foo; ` </span><br><span class="line"></span><br><span class="line">#### 延迟加载</span><br><span class="line"></span><br><span class="line">```dart</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">延迟加载</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    也称为懒加载，可以在需要的时候再进行加载。</span></span><br><span class="line"><span class="comment">    懒加载的最大好处是可以减少APP的启动时间。</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    懒加载使用deferred as关键字来指定，如下例子所示：</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    import &#x27;package:deferred/hello.dart&#x27; deferred as hello;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    当需要使用的时候，需要使用loadLibrary()方法来加载：</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    greet() async &#123;</span></span><br><span class="line"><span class="comment">      await hello.loadLibrary();</span></span><br><span class="line"><span class="comment">      hello.printGreeting();</span></span><br><span class="line"><span class="comment">    &#125;</span></span><br><span class="line"><span class="comment"> </span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
 </code></pre>
-<h4 id="分库"><a href="#分库" class="headerlink" title="分库"></a>分库</h4><p>dart中，通过使用part、part of、library来实现拆分库，这样，就可以将一个庞大的库拆分成各种小库，只要引用主库即可，用法如下：</p>
+<h4 id="分库，export"><a href="#分库，export" class="headerlink" title="分库，export"></a>分库，export</h4><p>dart中，通过使用part、part of、library来实现拆分库，这样，就可以将一个庞大的库拆分成各种小库，只要引用主库即可，用法如下：</p>
 <p>假设有三个文件，两个子库calculator和logger，一个主库util  </p>
 <figure class="highlight dart"><table><tr><td class="code"><pre><span class="line"><span class="comment">//calculator.dart代码：</span></span><br><span class="line"><span class="comment">//和主库建立连接</span></span><br><span class="line"><span class="keyword">part</span> of util;</span><br><span class="line"></span><br><span class="line"><span class="built_in">int</span> add(<span class="built_in">int</span> i, <span class="built_in">int</span> j) &#123;</span><br><span class="line">  <span class="keyword">return</span> i + j;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">int</span> sub(<span class="built_in">int</span> i, <span class="built_in">int</span> j) &#123;</span><br><span class="line">  <span class="keyword">return</span> i - j;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">int</span> random(<span class="built_in">int</span> no) &#123;</span><br><span class="line">  <span class="keyword">return</span> Random().nextInt(no);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//========================================</span></span><br><span class="line"><span class="comment">//logger.dart代码：</span></span><br><span class="line"><span class="comment">//和主库建立连接</span></span><br><span class="line"><span class="keyword">part</span> of util;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Logger</span> </span>&#123;</span><br><span class="line">  <span class="built_in">String</span> _app_name;</span><br><span class="line">  Logger(<span class="keyword">this</span>._app_name);</span><br><span class="line">  <span class="keyword">void</span> error(error) &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;<span class="subst">$&#123;_app_name&#125;</span>Error:<span class="subst">$&#123;error&#125;</span>&#x27;</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">void</span> warn(msg) &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;<span class="subst">$&#123;_app_name&#125;</span>Error:<span class="subst">$&#123;msg&#125;</span>&#x27;</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">void</span> debug(msg) &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;<span class="subst">$&#123;_app_name&#125;</span>Error:<span class="subst">$&#123;msg&#125;</span>&#x27;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//=========================================</span></span><br><span class="line"><span class="comment">//主库util.dart代码：</span></span><br><span class="line"><span class="comment">//给库命名</span></span><br><span class="line"><span class="keyword">library</span> util;</span><br><span class="line"></span><br><span class="line"><span class="comment">//导入math，子库用到</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">&#x27;dart:math&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//和子库建立联系</span></span><br><span class="line"><span class="keyword">part</span> <span class="string">&#x27;logger.dart&#x27;</span>;</span><br><span class="line"><span class="keyword">part</span> <span class="string">&#x27;calculator.dart&#x27;</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//===========================================</span></span><br><span class="line"><span class="comment">//使用：</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">&#x27;./util.dart&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> main() &#123;</span><br><span class="line">  <span class="comment">//使用logger库定义的类</span></span><br><span class="line">  Logger logger = Logger(<span class="string">&#x27;Demo&#x27;</span>);</span><br><span class="line">  logger.debug(<span class="string">&#x27;这是debug信息&#x27;</span>);</span><br><span class="line"></span><br><span class="line">  <span class="comment">//使用calculator库定义的方法</span></span><br><span class="line">  <span class="built_in">print</span>(add(<span class="number">1</span>, <span class="number">2</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-
-
+<p><strong>export的作用相当于在A库将多个库导入，且所有引用A库的文件都将引用所有export导入的文件，相当于将库收集在一起，无需在项目中一个一个导入</strong></p>
 <h3 id="Dart异步"><a href="#Dart异步" class="headerlink" title="Dart异步"></a>Dart异步</h3><blockquote>
 <p> async和await关键词</p>
 </blockquote>
@@ -506,6 +505,174 @@ void main(args) &#123;
 <td></td>
 </tr>
 </tbody></table>
+<hr>
+<blockquote>
+<p> 2021/10/13</p>
+</blockquote>
+<hr>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>complicated</td>
+<td><code>adj</code> 难解的，复杂的</td>
+</tr>
+<tr>
+<td>enrich</td>
+<td><code>v</code> 使丰富，使富裕</td>
+</tr>
+<tr>
+<td>intellectual</td>
+<td><code>adj </code> 聪明的  <code>n</code> 知识分子</td>
+</tr>
+<tr>
+<td>acknowledge</td>
+<td><code>v</code> 告知收到，承认，致谢，致意</td>
+</tr>
+<tr>
+<td>spacious</td>
+<td><code>adj</code> 宽敞的，广阔的</td>
+</tr>
+<tr>
+<td>injury</td>
+<td><code>vt</code> 使受伤</td>
+</tr>
+<tr>
+<td>cardinal</td>
+<td><code>adj</code>  主要的，基本的  <code>n</code> 基数，红衣主教</td>
+</tr>
+<tr>
+<td>worthwhile</td>
+<td><code>adj </code>值得的 有意义的</td>
+</tr>
+<tr>
+<td>invalid</td>
+<td><code>adj</code>  无效的  <code>n</code> 病人 残疾人</td>
+</tr>
+<tr>
+<td>condemn</td>
+<td><code>v</code> 谴责 责备</td>
+</tr>
+<tr>
+<td>surge</td>
+<td><code>vi</code>  汹涌，激增  <code>n </code> 波涛汹涌</td>
+</tr>
+<tr>
+<td>dubious</td>
+<td><code>adj</code> 可疑的，怀疑的</td>
+</tr>
+<tr>
+<td>shed</td>
+<td><code>v</code> 流出（眼泪），蜕皮 ， 使清晰 <code>n</code> 棚屋</td>
+</tr>
+<tr>
+<td>sustain</td>
+<td><code>v</code> 支撑，承受</td>
+</tr>
+<tr>
+<td>visible</td>
+<td><code>adj</code> 可见的</td>
+</tr>
+</tbody></table>
+<hr>
+<blockquote>
+<p>2021/10/19</p>
+</blockquote>
+<hr>
+<blockquote>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>comprehensive</td>
+<td><code>adj</code> 全面的，详细的，完整的</td>
+</tr>
+<tr>
+<td>conform</td>
+<td><code>vi</code> 遵照，顺从  <code>vt</code> 使一致   <code>adj</code> 一致的</td>
+</tr>
+<tr>
+<td>distinction</td>
+<td><code>n</code> 优秀，杰出，差别，区分</td>
+</tr>
+<tr>
+<td>feedback</td>
+<td><code>n</code> 反馈</td>
+</tr>
+<tr>
+<td>adequate</td>
+<td><code>adj</code> 足够的，过得去的</td>
+</tr>
+<tr>
+<td>grasp</td>
+<td><code>vt</code>  抓住，抓紧 。领会，理解   <code>n</code> 紧握</td>
+</tr>
+<tr>
+<td>caution</td>
+<td><code>n</code> 警告  <code>v</code> 劝…小心谨慎</td>
+</tr>
+<tr>
+<td>vicious</td>
+<td><code>adj</code> 凶猛的，残忍的</td>
+</tr>
+<tr>
+<td>product</td>
+<td><code>n</code> 产品</td>
+</tr>
+<tr>
+<td>extend</td>
+<td><code>v</code> 延伸，涉及，扩展</td>
+</tr>
+<tr>
+<td>influence</td>
+<td><code>vt</code> 影响 <code>n</code> 影响</td>
+</tr>
+<tr>
+<td>mobilize</td>
+<td><code>v</code> 动员，鼓动</td>
+</tr>
+<tr>
+<td>context</td>
+<td><code>n</code> 上下文</td>
+</tr>
+<tr>
+<td>outcome</td>
+<td><code>n</code> 后果，结果</td>
+</tr>
+<tr>
+<td>moral</td>
+<td><code>n</code> 道德 <code>adj</code> 道德上的</td>
+</tr>
+<tr>
+<td>ensure</td>
+<td><code>v</code> 确保</td>
+</tr>
+<tr>
+<td>contribute</td>
+<td><code>vt</code> 贡献</td>
+</tr>
+<tr>
+<td>abuse</td>
+<td><code>v</code> 虐待，辱骂<code>n</code> 滥用，虐待，辱骂</td>
+</tr>
+<tr>
+<td>grease</td>
+<td><code>n</code> 油脂，动物脂<code>v</code> 给…抹油</td>
+</tr>
+<tr>
+<td>humiliate</td>
+<td><code>vt</code> 羞辱</td>
+</tr>
+</tbody></table>
 ]]></content>
       <categories>
         <category>English</category>
@@ -588,6 +755,158 @@ void main(args) &#123;
 </ul>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">enum</span> <span class="title">SingletonEnum</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    INSTANCE;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 定义一个枚举的元素，它 就代表了Singleton的一个实例</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">singletonOperation</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 功能处理</span></span><br><span class="line"></span><br><span class="line">        System.err.println(<span class="string">&quot;功能处理&quot;</span>);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//客户端调用示例</span></span><br><span class="line"></span><br><span class="line">        SingletonEnum.INSTANCE.singletonOperation();</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<hr>
+<h3 id="2021-20-19简单工厂模式以及UML类图"><a href="#2021-20-19简单工厂模式以及UML类图" class="headerlink" title="2021/20/19简单工厂模式以及UML类图"></a><code>2021/20/19</code>简单工厂模式以及UML类图</h3><hr>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">今天发现一本适合设计模式初学者的书，以后设计模式跟着《大话设计模式》这本书学习</span><br></pre></td></tr></table></figure>
+
+<h4 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h4><p><img src="https://nanamyblog.oss-cn-beijing.aliyuncs.com/javaStream/2.png" alt="示例"></p>
+<h4 id="UML类图"><a href="#UML类图" class="headerlink" title="UML类图"></a>UML类图</h4><p><img src="https://nanamyblog.oss-cn-beijing.aliyuncs.com/javaStream/1.png" alt="uml"></p>
+]]></content>
+      <categories>
+        <category>JAVA</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>flutter</title>
+    <url>/2021/10/12/flutter/</url>
+    <content><![CDATA[<p>flutter学习。Flutter是Google开源的构建用户界面（UI）工具包，帮助开发者通过一套代码库高效构建多平台精美应用，支持移动、Web、桌面和嵌入式平台。</p>
+<span id="more"></span>
+
+<h3 id="1-搭建Flutter运行环境"><a href="#1-搭建Flutter运行环境" class="headerlink" title="1.搭建Flutter运行环境"></a>1.搭建Flutter运行环境</h3><p>一、 电脑上面安装配置 JDK</p>
+<p>二、 电脑上下载安装 Android Studio</p>
+<p>三、电脑上面下载配置 Flutter SDK</p>
+<p>四、电脑上配置 Flutter 国内镜像</p>
+<p>搭建环境过程中要下载很多资源文件，当一些资源下载不了的时候，可能会报各种错误。在<br>国内访问 Flutter 的时候有可能会受到限制。Flutter 官方为我们提供了国内的镜像<br><a href="https://flutter-io.cn/">https://flutter-io.cn/</a><br><a href="https://flutter.dev/community/china">https://flutter.dev/community/china</a><br>拉到 Flutter 中文网最下面有配置方式，把下面两句配置到环境变量里面（单独新建环境变量）<br>FLUTTER_STORAGE_BASE_URL: <a href="https://storage.flutter-io.cn/">https://storage.flutter-io.cn</a><br>PUB_HOSTED_URL: <a href="https://pub.flutter-io.cn/">https://pub.flutter-io.cn</a></p>
+<p>五、运行 flutter doctor 命令检测环境是否配置成功，按提示修改</p>
+<p>六、打开 Android Studio 安装 Flutter 插件</p>
+<p>七、创建 Flutter 项目</p>
+<p>八、Android Studio 中导入运行 Flutter 项目 运行项目</p>
+<h3 id="2-Flutter真机调试"><a href="#2-Flutter真机调试" class="headerlink" title="2.Flutter真机调试"></a>2.Flutter真机调试</h3><p>1、准备一台 Android 手机<br>2、手机需要开启调试模式<br>3、用数据线把手机连上电脑<br>4、手机要允许电脑进行 Usb 调试<br>5、手机对应的 sdk 版本必须安装</p>
+<h3 id="3-Vscode-中开发运行-Flutter-应用"><a href="#3-Vscode-中开发运行-Flutter-应用" class="headerlink" title="3.Vscode 中开发运行 Flutter 应用"></a>3.Vscode 中开发运行 Flutter 应用</h3><h4 id="一常用命令"><a href="#一常用命令" class="headerlink" title="一常用命令"></a>一常用命令</h4><p>1、Vscode 中安装 Flutter 插件 Dart插件</p>
+<p>2、Vscode 中打开 flutter 项目进行开发<br>3、运行 Flutter 项目<code>flutter run</code><br>r 键：点击后热加载，也就算是重新加载吧。<br>R键，重新编译运行。<br>p 键：显示网格，这个可以很好的掌握布局情况，工作中很有用。<br>o 键：切换 android 和 ios 的预览模式。<br>q 键：退出调试预览模式</p>
+<p>4、</p>
+<p><code>fim</code>     <code>import &#39;package:flutter/material.dart&#39;;</code></p>
+<p><code>stss</code>     <code>class  extends StatelessWidget</code></p>
+<h4 id="二目录结构"><a href="#二目录结构" class="headerlink" title="二目录结构"></a>二目录结构</h4><table>
+<thead>
+<tr>
+<th>文件夹</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>android</td>
+<td>android 平台相关代码</td>
+</tr>
+<tr>
+<td>ios</td>
+<td>ios 平台相关代码</td>
+</tr>
+<tr>
+<td>lib</td>
+<td>flutter 相关代码，我们主要编写的代码就在这个文件夹</td>
+</tr>
+<tr>
+<td>test</td>
+<td>用于存放测试代码</td>
+</tr>
+<tr>
+<td>pubspec.yaml</td>
+<td>配置文件，一般存放一些第三方库的依赖。</td>
+</tr>
+</tbody></table>
+<h4 id="三入口文件"><a href="#三入口文件" class="headerlink" title="三入口文件"></a>三入口文件</h4><p>lib文件的<code>main.dart</code> 是整个项目的入口文件</p>
+<figure class="highlight dart"><table><tr><td class="code"><pre><span class="line"><span class="keyword">void</span> main()&#123;</span><br><span class="line">runApp(MyApp());</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//也可以简写</span></span><br><span class="line"><span class="keyword">void</span> main()=&gt;runApp(MyApp());</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>MyApp是自定义的一个组件。<code>widget</code></li>
+<li>在 Flutter 中组件其实就是一个类。</li>
+<li>组件这个类需要继承  StatelessWidget/StatefulWidget。</li>
+<li>StatelessWidget 是无状态组件，状态不可变的 widget。</li>
+<li>StatefulWidget 是有状态组件，持有的状态可能在 widget 生命周期改变。</li>
+</ul>
+<h4 id="四-MaterialApp和Scoffold组件"><a href="#四-MaterialApp和Scoffold组件" class="headerlink" title="四 MaterialApp和Scoffold组件"></a>四 MaterialApp和Scoffold组件</h4><ul>
+<li>MaterialApp</li>
+</ul>
+<p>MaterialApp 是一个方便的 Widget，它封装了应用程序实现 Material Design 所需要的<br>一些 Widget。一般作为顶层 widget 使用。</p>
+<p>常用的属性：<br>home（主页）<br>title（标题）<br>color（颜色）<br>theme（主题）<br>routes（路由）<br>…</p>
+<p><code>我理解的MaterialApp 其实定义了整体的主题以及框架</code></p>
+<ul>
+<li>Scaffold</li>
+</ul>
+<p>Scaffold 是 Material Design 布局结构的基本实现。此类提供了用于显示 drawer、snackbar 和底部 sheet 的 API。<br>Scaffold 有下面几个主要属性：<br>appBar - 显示在界面顶部的一个 AppBar。<br>body - 当前界面所显示的主要内容 Widget。<br>drawer - 抽屉菜单控件。<br>…</p>
+<p><code>Scoffold其实是一个页面框架，定义了一个页面的结构</code></p>
+<h4 id="五问：Flutter构造方法为什么要使用const关键字？"><a href="#五问：Flutter构造方法为什么要使用const关键字？" class="headerlink" title="五问：Flutter构造方法为什么要使用const关键字？"></a>五问：Flutter构造方法为什么要使用const关键字？</h4><p>答：const关键字是用来返回const对象给声明为const的参数赋值用的。<br>如果没有const关键字，则给声明为const的参数赋值时，会报错<br>Error: Cannot invoke a non-‘const’ constructor where a const expression is expected.<br>但是const构造方法并不总是返回const对象，当给声明为const或final的参数赋值时，<br>会返回一个const对象，如果是给可变参数赋值，则返回一个可变的对象。</p>
+<h4 id="六Container、Text组件"><a href="#六Container、Text组件" class="headerlink" title="六Container、Text组件"></a>六Container、Text组件</h4><ul>
+<li>Container布局使用，相当于div</li>
+<li>Text文本</li>
+</ul>
+<h4 id="七Image图片组件"><a href="#七Image图片组件" class="headerlink" title="七Image图片组件"></a>七Image图片组件</h4><ul>
+<li>Image 引入远程本地图片</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Flutter</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>JAVA stream流</title>
+    <url>/2021/10/19/java%E6%B5%81%E6%93%8D%E4%BD%9C/</url>
+    <content><![CDATA[<blockquote>
+<p>2021/10/19</p>
+</blockquote>
+<h3 id="java-stream流"><a href="#java-stream流" class="headerlink" title="java stream流"></a>java stream流</h3><p>问题：计算一个列表中的奇数平方和</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">demo01</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        List&lt;Integer&gt; numbers = Arrays.asList(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>);</span><br><span class="line">        <span class="keyword">int</span> sum = numbers.stream()</span><br><span class="line">                .filter(n -&gt; n % <span class="number">2</span>  == <span class="number">1</span>)</span><br><span class="line">                .map(n  -&gt; n * n)</span><br><span class="line">                .reduce(<span class="number">0</span>, Integer::sum);</span><br><span class="line"></span><br><span class="line">        System.out.println(sum);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>简单分析源码</p>
+<ul>
+<li>stream()方法存在Collection接口中，将Collection实现类转换为Stream类</li>
+<li>filter()方法在Stream接口中定义，接受一个叫Predicate的函数式接口实现类。官方解释：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">`filter()`: Returns a stream consisting of the elements of this stream that match the given predicate.This is an intermediate operation.</span><br><span class="line"></span><br><span class="line">`Predicate`: Represents a predicate (boolean-valued function) of one argument.</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>map()方法在Stream接口中定义，接受一个叫Function的函数式接口实现类。官方解释：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">`map()`: Returns a stream consisting of the results of applying the given function to the elements of this stream.This is an intermediate operation.</span><br><span class="line"></span><br><span class="line">`Function`: Represents a function that accepts one argument and produces a result.</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>reduce()方法在Stream接口中定义，接受一个和流相同的泛型类型参数identity和一个BinaryOperator的函数式接口实现类</p>
+<p><code>Integer::sum</code>这种写法其实是代表函数的引用，等同于<code>(n1, n2) -&gt; n1 + n2</code> 。<code>Integer.sum</code>代表函数的调用。</p>
+<p><code>reduce()</code>对使用BinaryOperator对identity和流里面每个元素进行操作，并将返回值给identity</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">`reduce()`: Performs a reduction on the elements of this stream, using the provided identity value and an associative accumulation function, and returns the reduced value. This is a terminal operation.</span><br><span class="line"></span><br><span class="line">`BinaryOperator`: Represents an operation upon two operands of the same type, producing a result of the same type as the operands. This is a specialization of BiFunction for the case where the operands and the result are all of the same type.</span><br><span class="line"></span><br><span class="line">`BiFunction`: Represents a function that accepts two arguments and produces a result. This is the two-arity specialization of Function.</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="流操作与循环操作的区别"><a href="#流操作与循环操作的区别" class="headerlink" title="流操作与循环操作的区别"></a>流操作与循环操作的区别</h4><ul>
+<li><code>循环</code>操作是顺序代码，只能由一个线程执行。<code>流</code>被设计为并行处理元素。</li>
+<li><code>循环</code>是命令式编程，我们不仅控制要做什么，还要如何做。<code>流</code> 是声明式编程，我们只需要告诉该做什么，该部分如何做由系统本身处理。</li>
+</ul>
+<h4 id="流的两种操作类型"><a href="#流的两种操作类型" class="headerlink" title="流的两种操作类型"></a>流的两种操作类型</h4><ul>
+<li>中间操作</li>
+<li>终端操作</li>
+</ul>
+<p>中间操作不处理元素，直到在流上调用终端操作。</p>
+<p>流上的中间操作产生另一流。</p>
+<p>Stream通过链式操作以创建流管道。</p>
+<p>在上面的代码中filter()和map()都是中间操作。 而reduce()是终端操作。</p>
+<h3 id="java流API"><a href="#java流API" class="headerlink" title="java流API"></a>java流API</h3><p>流相关的接口和类在java.util.stream包中。</p>
+<p><code>AutoCloseable</code>接口来自java.lang包。</p>
+<p>所有流接口从继承自<code>AutoCloseable</code>接口的<code>BaseStream</code>接口继承。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">AutoCloseable</span><br><span class="line"> |</span><br><span class="line"> +--BaseStream</span><br><span class="line">     |</span><br><span class="line">     +--IntStream</span><br><span class="line">     |</span><br><span class="line">     +--LongStream</span><br><span class="line">     |</span><br><span class="line">     +--DoubleStream</span><br><span class="line">     |</span><br><span class="line">     +--Stream&lt;T&gt;</span><br></pre></td></tr></table></figure>
+
+<p>如果流使用集合作为其数据源，并且集合不需要关闭。</p>
+<p>如果流基于可关闭的数据源（例如文件I/O通道），那么我们可以使用try-with-resources语句创建流，以使其自动关闭。</p>
+<h4 id="BaseStream"><a href="#BaseStream" class="headerlink" title="BaseStream"></a>BaseStream</h4><p>BaseStream接口定义所有类型的流的所有方法。</p>
+<ul>
+<li><code>Iterator&lt;T&gt; iterator()</code><br>终端操作<br>返回流的迭代器。</li>
+<li><code>sequential()</code><br>中间操作<br>返回顺序流。 如果流已经是顺序的，则它返回自身。 它将并行流转换为顺序流。</li>
+<li><code>parallel()</code><br>中间操作<br>返回并行流。 如果流已经是并行的，则它返回自身。 它将并行流转换为顺序流。</li>
+<li><code>boolean isParallel()</code><br>如果流是并行，则返回true，否则返回false。<br>在调用终端流操作方法后调用此方法可能会产生不可预测的结果。</li>
+<li><code>unordered()</code><br>中间操作<br>返回流的无序版本。 如果流已经是无序的，则它返回自身。</li>
+</ul>
+<h4 id="流"><a href="#流" class="headerlink" title="流"></a>流</h4><p><code>Stream&lt;T&gt; </code>接口表示元素类型T的流。</p>
+<p><code>Stream &lt;T&gt;</code>接口包含诸如filter()，map()，reduce()，collect()，max()，min()等。</p>
+<p>当使用原始类型时，我们可以使用三个专门的流接口，称为<code>IntStream</code>，<code>LongStream</code>和<code>DoubleStream</code>。</p>
+<p>这些接口提供了处理原始值的方法。</p>
 ]]></content>
       <categories>
         <category>JAVA</category>

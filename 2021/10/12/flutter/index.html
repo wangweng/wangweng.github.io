@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  <title>
+    flutter |
+    
+    Wen wang
+  </title>
+  
+    <link rel="shortcut icon" href="/nanaicon.svg">
+    
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<script src="/js/pace.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Wen wang" type="application/atom+xml">
+</head>
+
+<body>
+  <main class="content">
+    <section class="outer">
+  <article id="post-flutter" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+      
+
+<h1 class="article-title" itemprop="name">
+  flutter
+</h1>
+
+
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2021/10/12/flutter/" class="article-date">
+  <time datetime="2021-10-12T14:38:36.000Z" itemprop="datePublished">2021-10-12</time>
+</a>
+      
+<div class="article-category">
+  <a class="article-category-link" href="/categories/Flutter/">Flutter</a>
+</div>
+
+    </div>
+    
+
+    
+    
+<div class="tocbot"></div>
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+      
+      <p>flutter学习。Flutter是Google开源的构建用户界面（UI）工具包，帮助开发者通过一套代码库高效构建多平台精美应用，支持移动、Web、桌面和嵌入式平台。</p>
+<span id="more"></span>
+
+<h3 id="1-搭建Flutter运行环境"><a href="#1-搭建Flutter运行环境" class="headerlink" title="1.搭建Flutter运行环境"></a>1.搭建Flutter运行环境</h3><p>一、 电脑上面安装配置 JDK</p>
+<p>二、 电脑上下载安装 Android Studio</p>
+<p>三、电脑上面下载配置 Flutter SDK</p>
+<p>四、电脑上配置 Flutter 国内镜像</p>
+<p>搭建环境过程中要下载很多资源文件，当一些资源下载不了的时候，可能会报各种错误。在<br>国内访问 Flutter 的时候有可能会受到限制。Flutter 官方为我们提供了国内的镜像<br><a target="_blank" rel="noopener" href="https://flutter-io.cn/">https://flutter-io.cn/</a><br><a target="_blank" rel="noopener" href="https://flutter.dev/community/china">https://flutter.dev/community/china</a><br>拉到 Flutter 中文网最下面有配置方式，把下面两句配置到环境变量里面（单独新建环境变量）<br>FLUTTER_STORAGE_BASE_URL: <a target="_blank" rel="noopener" href="https://storage.flutter-io.cn/">https://storage.flutter-io.cn</a><br>PUB_HOSTED_URL: <a target="_blank" rel="noopener" href="https://pub.flutter-io.cn/">https://pub.flutter-io.cn</a></p>
+<p>五、运行 flutter doctor 命令检测环境是否配置成功，按提示修改</p>
+<p>六、打开 Android Studio 安装 Flutter 插件</p>
+<p>七、创建 Flutter 项目</p>
+<p>八、Android Studio 中导入运行 Flutter 项目 运行项目</p>
+<h3 id="2-Flutter真机调试"><a href="#2-Flutter真机调试" class="headerlink" title="2.Flutter真机调试"></a>2.Flutter真机调试</h3><p>1、准备一台 Android 手机<br>2、手机需要开启调试模式<br>3、用数据线把手机连上电脑<br>4、手机要允许电脑进行 Usb 调试<br>5、手机对应的 sdk 版本必须安装</p>
+<h3 id="3-Vscode-中开发运行-Flutter-应用"><a href="#3-Vscode-中开发运行-Flutter-应用" class="headerlink" title="3.Vscode 中开发运行 Flutter 应用"></a>3.Vscode 中开发运行 Flutter 应用</h3><h4 id="一常用命令"><a href="#一常用命令" class="headerlink" title="一常用命令"></a>一常用命令</h4><p>1、Vscode 中安装 Flutter 插件 Dart插件</p>
+<p>2、Vscode 中打开 flutter 项目进行开发<br>3、运行 Flutter 项目<code>flutter run</code><br>r 键：点击后热加载，也就算是重新加载吧。<br>R键，重新编译运行。<br>p 键：显示网格，这个可以很好的掌握布局情况，工作中很有用。<br>o 键：切换 android 和 ios 的预览模式。<br>q 键：退出调试预览模式</p>
+<p>4、</p>
+<p><code>fim</code>     <code>import &#39;package:flutter/material.dart&#39;;</code></p>
+<p><code>stss</code>     <code>class  extends StatelessWidget</code></p>
+<h4 id="二目录结构"><a href="#二目录结构" class="headerlink" title="二目录结构"></a>二目录结构</h4><table>
+<thead>
+<tr>
+<th>文件夹</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>android</td>
+<td>android 平台相关代码</td>
+</tr>
+<tr>
+<td>ios</td>
+<td>ios 平台相关代码</td>
+</tr>
+<tr>
+<td>lib</td>
+<td>flutter 相关代码，我们主要编写的代码就在这个文件夹</td>
+</tr>
+<tr>
+<td>test</td>
+<td>用于存放测试代码</td>
+</tr>
+<tr>
+<td>pubspec.yaml</td>
+<td>配置文件，一般存放一些第三方库的依赖。</td>
+</tr>
+</tbody></table>
+<h4 id="三入口文件"><a href="#三入口文件" class="headerlink" title="三入口文件"></a>三入口文件</h4><p>lib文件的<code>main.dart</code> 是整个项目的入口文件</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> main()&#123;</span><br><span class="line">runApp(MyApp());</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//也可以简写</span></span><br><span class="line"><span class="keyword">void</span> main()=&gt;runApp(MyApp());</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>MyApp是自定义的一个组件。<code>widget</code></li>
+<li>在 Flutter 中组件其实就是一个类。</li>
+<li>组件这个类需要继承  StatelessWidget/StatefulWidget。</li>
+<li>StatelessWidget 是无状态组件，状态不可变的 widget。</li>
+<li>StatefulWidget 是有状态组件，持有的状态可能在 widget 生命周期改变。</li>
+</ul>
+<h4 id="四-MaterialApp和Scoffold组件"><a href="#四-MaterialApp和Scoffold组件" class="headerlink" title="四 MaterialApp和Scoffold组件"></a>四 MaterialApp和Scoffold组件</h4><ul>
+<li>MaterialApp</li>
+</ul>
+<p>MaterialApp 是一个方便的 Widget，它封装了应用程序实现 Material Design 所需要的<br>一些 Widget。一般作为顶层 widget 使用。</p>
+<p>常用的属性：<br>home（主页）<br>title（标题）<br>color（颜色）<br>theme（主题）<br>routes（路由）<br>…</p>
+<p><code>我理解的MaterialApp 其实定义了整体的主题以及框架</code></p>
+<ul>
+<li>Scaffold</li>
+</ul>
+<p>Scaffold 是 Material Design 布局结构的基本实现。此类提供了用于显示 drawer、snackbar 和底部 sheet 的 API。<br>Scaffold 有下面几个主要属性：<br>appBar - 显示在界面顶部的一个 AppBar。<br>body - 当前界面所显示的主要内容 Widget。<br>drawer - 抽屉菜单控件。<br>…</p>
+<p><code>Scoffold其实是一个页面框架，定义了一个页面的结构</code></p>
+<h4 id="五问：Flutter构造方法为什么要使用const关键字？"><a href="#五问：Flutter构造方法为什么要使用const关键字？" class="headerlink" title="五问：Flutter构造方法为什么要使用const关键字？"></a>五问：Flutter构造方法为什么要使用const关键字？</h4><p>答：const关键字是用来返回const对象给声明为const的参数赋值用的。<br>如果没有const关键字，则给声明为const的参数赋值时，会报错<br>Error: Cannot invoke a non-‘const’ constructor where a const expression is expected.<br>但是const构造方法并不总是返回const对象，当给声明为const或final的参数赋值时，<br>会返回一个const对象，如果是给可变参数赋值，则返回一个可变的对象。</p>
+<h4 id="六Container、Text组件"><a href="#六Container、Text组件" class="headerlink" title="六Container、Text组件"></a>六Container、Text组件</h4><ul>
+<li>Container布局使用，相当于div</li>
+<li>Text文本</li>
+</ul>
+<h4 id="七Image图片组件"><a href="#七Image图片组件" class="headerlink" title="七Image图片组件"></a>七Image图片组件</h4><ul>
+<li>Image 引入远程本地图片</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://www.nanakomatsu.xyz/2021/10/12/flutter/" data-id="ckuy0y7vp0000bgv1g44tdtep" class="article-share-link">
+        分享
+      </a>
+      
+    </footer>
+
+  </div>
+
+  
+  
+<nav class="article-nav">
+  
+  <a href="/2021/10/19/java%E6%B5%81%E6%93%8D%E4%BD%9C/" class="article-nav-link">
+    <strong class="article-nav-caption">前一篇</strong>
+    <div class="article-nav-title">
+      
+      JAVA stream流
+      
+    </div>
+  </a>
+  
+  
+  <a href="/2021/10/11/%E8%8B%B1%E8%AF%AD/" class="article-nav-link">
+    <strong class="article-nav-caption">后一篇</strong>
+    <div class="article-nav-title">每日英语单词</div>
+  </a>
+  
+</nav>
+
+  
+
+  
+  
+  
+  
+
+</article>
+</section>
+    <footer class="footer">
+  <div class="outer">
+    <div class="float-right">
+      <ul class="list-inline">
+  
+  <li><i class="fe fe-smile-alt"></i> <span id="busuanzi_value_site_uv"></span></li>
+  
+  <li><i class="fe fe-bookmark"></i> <span id="busuanzi_value_page_pv"></span></li>
+  
+</ul>
+    </div>
+    <ul class="list-inline">
+      <li>Wen wang &copy; 2021</li>
+      
+      <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
+      <li>theme  <a target="_blank" rel="noopener" href="https://github.com/zhwangart/hexo-theme-ocean">Ocean</a></li>
+    </ul>
+  </div>
+</footer>
+  </main>
+  <aside class="sidebar">
+    <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/nana.svg" alt="Wen wang"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">首页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/favorites">收藏</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/gallery">相册</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">关于</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link nav-item-search" title="搜索">
+        <i class="fe fe-search"></i>
+        搜索
+      </a>
+    </li>
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      <div class="totop" id="totop">
+  <i class="fe fe-rocket"></i>
+</div>
+    </li>
+    <li class="nav-item">
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="fe fe-feed"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+  </aside>
+  
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/copybtn.js"></script>
+
+
+
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto',
+  });
+</script>
+
+
+
+<script src="/js/ocean.js"></script>
+
+</body>
+
+</html>
